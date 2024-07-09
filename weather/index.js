@@ -7,9 +7,6 @@ var city = document.querySelector('#cityoutput')
 var descrip = document.querySelector('#description')
 var temp = document.querySelector('#temp')
 var wind = document.querySelector('#wind')
-function convertion(val) {
-    return (val - 273).toFixed(3)
-}
 
 btn.addEventListener('click',() => {
 const location = inputvalue.value;
@@ -31,7 +28,7 @@ function fetchWeather(location){
             var wndspeed = data['wind']['speed']
 
             city.innerHTML = `Weather of <span>${nameval}</span>`
-            temp.innerHTML = `Temperature: <span>${convertion(tempature)} C</span>`
+            temp.innerHTML = `Temperature: <span>${Math.round(data.main.temp)}C</span>`
             description.innerHTML = `Sky Conditions: <span>${descrip}</span>`
             wind.innerHTML = `Wind Speed: <span>${wndspeed} km/h</span>`
 
